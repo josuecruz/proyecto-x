@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto X — AI-Native Financial Services for Mexico</title>
+<meta name="description" content="Proyecto X is building the first AI-native financial services platform for Mexico's underserved mass market. Pre-seed stage, seeking strategic partners and investors.">
+<meta name="theme-color" content="#0A1628">
+<meta property="og:title" content="Proyecto X — AI-Native Financial Services">
+<meta property="og:description" content="AI-powered financial services built for Mexico. Pre-seed stage seeking strategic partners and investors.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://proyecto-x.com">
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #0A1628;
+  --navy-light: #0F1F3D;
+  --navy-card: #111D35;
+  --blue: #0066FF;
+  --blue-glow: #0066FF66;
+  --amber: #FFB800;
+  --amber-dim: #FFB80044;
+  --white: #FFFFFF;
+  --gray: #8899B0;
+  --gray-light: #B0C0D8;
+  --gradient-main: linear-gradient(135deg, #0A1628 0%, #0F1F3D 50%, #132544 100%);
+  --gradient-accent: linear-gradient(135deg, #0066FF, #0044CC);
+  --gradient-accent-glow: linear-gradient(135deg, #0066FF88, #0044CC88);
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--navy);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+  transition: var(--transition);
+}
+a:hover {
+  color: var(--amber);
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Language Toggle */
+.lang-toggle {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  background: var(--navy-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 30px;
+  padding: 3px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--gray);
+  padding: 6px 14px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font);
+  transition: var(--transition);
+  letter-spacing: 0.3px;
+}
+.lang-btn.active {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 0 20px var(--blue-glow);
+}
+.lang-btn:hover:not(.active) {
+  color: var(--white);
+}
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 20px 0;
+  background: linear-gradient(180deg, rgba(10,22,40,0.98) 0%, rgba(10,22,40,0) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.logo span {
+  color: var(--white);
+  -webkit-text-fill-color: var(--white);
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.nav-links a {
+  color: var(--gray-light);
+  transition: var(--transition);
+}
+.nav-links a:hover {
+  color: var(--white);
+}
+
+/* Sections */
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--gradient-main);
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--amber-dim) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(0,102,255,0.12);
+  border: 1px solid rgba(0,102,255,0.25);
+  border-radius: 30px;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+.hero h1 .highlight {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero h1 .highlight-amber {
+  background: linear-gradient(135deg, var(--amber), #FF9500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p.tagline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--gray-light);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--gradient-accent);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--blue-glow);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px var(--blue-glow);
+  color: #fff;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.btn-secondary:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+.hero-stat h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+.hero-stat p {
+  font-size: 0.8rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* Section Headers */
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.section-sub {
+  color: var(--gray);
+  font-size: 1.05rem;
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+/* Problem / Solution */
+.problem-solution {
+  background: var(--navy);
+}
+.ps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+.ps-card {
+  padding: 40px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.ps-card.problem {
+  background: linear-gradient(135deg, #1A0A0A, #0A1628);
+  border-color: rgba(255,50,50,0.12);
+}
+.ps-card.solution {
+  background: linear-gradient(135deg, #0A1A20, #0A1628);
+  border-color: rgba(0,200,100,0.12);
+}
+.ps-card-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+.ps-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.ps-card.problem h3 { color: #FF5555; }
+.ps-card.solution h3 { color: #00D68F; }
+.ps-card p {
+  color: var(--gray-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.ps-card ul {
+  list-style: none;
+  margin-top: 16px;
+}
+.ps-card ul li {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  padding: 6px 0;
+  padding-left: 24px;
+  position: relative;
+}
+.ps-card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.ps-card.problem ul li::before { background: #FF5555; }
+.ps-card.solution ul li::before { background: #00D68F; }
+
+.big-number {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.ps-card.problem .big-number { color: #FF5555; opacity: 0.3; }
+.ps-card.solution .big-number { color: #00D68F; opacity: 0.3; }
+
+/* Stats Bar */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+  padding: 36px;
+  background: var(--navy-card);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.stat-item {
+  text-align: center;
+}
+.stat-item h4 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-item p {
+  color: var(--gray);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* Why Mexico */
+.why-mexico {
+  background: var(--navy-light);
+}
+.mexico-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+  align-items: center;
+}
+.mexico-content p {
+  color: var(--gray-light);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.mexico-content p:last-child {
+  margin-bottom: 0;
+}
+.mexico-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.mexico-stat-card {
+  background: var(--navy-card);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+}
+.mexico-stat-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,102,255,0.1);
+}
+.mexico-stat-card .value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+.mexico-stat-card .label {
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Technology */
+.tech {
+  background: var(--navy);
+}
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.tech-card {
+  background: var(--navy-card);
+  border-radius: var(--radius);
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+}
+.tech-card:hover {
+  border-color: rgba(0,102,255,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.tech-card .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+.tech-card .icon.blue { background: rgba(0,102,255,0.15); }
+.tech-card .icon.green { background: rgba(0,200,100,0.15); }
+.tech-card .icon.amber { background: rgba(255,184,0,0.15); }
+.tech-card .icon.purple { background: rgba(130,80,255,0.15); }
+.tech-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.tech-card p {
+  color: var(--gray);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* Comparison Table */
+.comparison-wrap {
+  margin-top: 56px;
+  overflow-x: auto;
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+  min-width: 600px;
+}
+.comparison-table th {
+  text-align: left;
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gray);
+  background: var(--navy-card);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.comparison-table th:first-child {
+  border-radius: 10px 0 0 0;
+}
+.comparison-table th:last-child {
+  border-radius: 0 10px 0 0;
+}
+.comparison-table td {
+  padding: 14px 20px;
+  color: var(--gray-light);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.comparison-table tr:last-child td:first-child {
+  border-radius: 0 0 0 10px;
+}
+.comparison-table tr:last-child td:last-child {
+  border-radius: 0 0 10px 0;
+}
+.comparison-table tr:hover td {
+  background: rgba(0,102,255,0.04);
+}
+.comparison-table .highlight-row td {
+  color: var(--white);
+  font-weight: 600;
+}
+.comparison-table .highlight-row td:last-child {
+  color: var(--blue);
+}
+
+/* Team */
+.team {
+  background: var(--navy-light);
+}
+.team-card {
+  display: flex;
+  gap: 32px;
+  align-items: start;
+  background: var(--navy-card);
+  border-radius: var(--radius);
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.05);
+  margin-top: 48px;
+  max-width: 640px;
+}
+.team-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.team-info h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.team-info .role {
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.team-info p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.team-info .contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gray-light);
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+.team-info .contact-link:hover {
+  color: var(--blue);
+}
+
+/* Contact */
+.contact {
+  background: var(--navy);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+}
+.contact-info h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.contact-info p {
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--gray-light);
+  font-size: 0.9rem;
+}
+.contact-detail .emoji {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px 16px;
+  background: var(--navy-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-family: var(--font);
+  transition: var(--transition);
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-glow);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--gray);
+  opacity: 0.6;
+}
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238899B0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+.form-group select option {
+  background: var(--navy);
+  color: var(--white);
+}
+.btn-submit {
+  padding: 14px 32px;
+  background: var(--gradient-accent);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 24px var(--blue-glow);
+  margin-top: 4px;
+}
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px var(--blue-glow);
+}
+
+/* Footer */
+footer {
+  background: var(--navy-light);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 48px 0 32px;
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+footer .logo {
+  font-size: 1.1rem;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+  font-size: 0.85rem;
+}
+.footer-links a {
+  color: var(--gray);
+}
+.footer-links a:hover {
+  color: var(--white);
+}
+.footer-bottom {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+/* Sticky banner */
+.sticky-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(10,22,40,0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 14px 24px;
+  display: none;
+}
+.sticky-banner.show {
+  display: block;
+}
+.sticky-banner .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sticky-banner p {
+  font-size: 0.85rem;
+  color: var(--gray-light);
+}
+.sticky-banner .btn {
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* Language visibility */
+[data-lang="es"] .lang-es,
+[data-lang="en"] .lang-en {
+  display: inherit;
+}
+[data-lang="es"] .lang-en,
+[data-lang="en"] .lang-es {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ps-grid,
+  .mexico-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .nav-links {
+    display: none;
+  }
+  .hero-stats {
+    gap: 24px;
+  }
+  .hero-stat h3 {
+    font-size: 1.6rem;
+  }
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  footer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 60px 0;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .ps-card {
+    padding: 24px;
+  }
+  .big-number {
+    font-size: 3rem;
+  }
+  .mexico-stats {
+    grid-template-columns: 1fr;
+  }
+  .stats-bar {
+    grid-template-columns: 1fr 1fr;
+    padding: 24px;
+  }
+  .stat-item h4 {
+    font-size: 1.6rem;
+  }
+  .comparison-table {
+    font-size: 0.78rem;
+  }
+  .comparison-table th,
+  .comparison-table td {
+    padding: 10px 12px;
+  }
+  .team-card {
+    padding: 24px;
+  }
+  .team-avatar {
+    width: 72px;
+    height: 72px;
+    font-size: 1.8rem;
+  }
+  .sticky-banner p {
+    font-size: 0.75rem;
+  }
+  .sticky-banner .btn {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-toggle" role="radiogroup" aria-label="Language selector">
+  <button class="lang-btn active" data-lang="en" onclick="setLang('en')" aria-pressed="true">EN</button>
+  <button class="lang-btn" data-lang="es" onclick="setLang('es')" aria-pressed="false">ES</button>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="container">
+    <div class="logo">Proyecto <span>X</span></div>
+    <ul class="nav-links">
+      <li><a href="#problem" class="lang-en">Problem</a><a href="#problem" class="lang-es">Problema</a></li>
+      <li><a href="#mexico" class="lang-en">Mexico</a><a href="#mexico" class="lang-es">México</a></li>
+      <li><a href="#tech" class="lang-en">Technology</a><a href="#tech" class="lang-es">Tecnología</a></li>
+      <li><a href="#team" class="lang-en">Team</a><a href="#team" class="lang-es">Equipo</a></li>
+      <li><a href="#contact" class="lang-en">Contact</a><a href="#contact" class="lang-es">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-badge lang-en">Pre-Seed &bull; Building the Future of Finance</div>
+    <div class="hero-badge lang-es">Pre-Semilla &bull; Construyendo el Futuro Financiero</div>
+    <h1>
+      <span class="lang-en">AI-Native Financial Services<br><span class="highlight">Built for Mexico</span></span>
+      <span class="lang-es">Servicios Financieros con IA<br><span class="highlight">Hechos para México</span></span>
+    </h1>
+    <p class="tagline lang-en">Proyecto X is building the first AI-native financial platform for Mexico's underserved mass market. Credit decisions in seconds, not days.</p>
+    <p class="tagline lang-es">Proyecto X construye la primera plataforma financiera nativa de IA para el mercado masivo no bancarizado de México. Decisiones de crédito en segundos, no en días.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary lang-en">Get in Touch</a>
+      <a href="#contact" class="btn btn-primary lang-es">Contáctanos</a>
+      <a href="#problem" class="btn btn-secondary lang-en">Learn More</a>
+      <a href="#problem" class="btn btn-secondary lang-es">Saber Más</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <h3>$67.2B</h3>
+        <p class="lang-en">Mexico Fintech Market by 2034</p>
+        <p class="lang-es">Mercado Fintech México 2034</p>
+      </div>
+      <div class="hero-stat">
+        <h3>60%+</h3>
+        <p class="lang-en">Adults Without Formal Credit</p>
+        <p class="lang-es">Adultos sin Crédito Formal</p>
+      </div>
+      <div class="hero-stat">
+        <h3>&lt;5s</h3>
+        <p class="lang-en">AI Credit Decision Time</p>
+        <p class="lang-es">Decisión de Crédito con IA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem / Solution -->
+<section class="problem-solution" id="problem">
+  <div class="container">
+    <span class="section-label lang-en">The Challenge &amp; Our Answer</span>
+    <span class="section-label lang-es">El Desafío y Nuestra Respuesta</span>
+    <h2 class="section-title lang-en">Mexico's Credit Gap is <span class="highlight-amber">Massive</span></h2>
+    <h2 class="section-title lang-es">La Brecha de Crédito en México es <span class="highlight-amber">Masiva</span></h2>
+    <p class="section-sub lang-en">Traditional banks reject 7 out of 10 SME applications. We're changing that with AI-native infrastructure.</p>
+    <p class="section-sub lang-es">La banca tradicional rechaza 7 de cada 10 solicitudes PyME. Estamos cambiando eso con infraestructura nativa de IA.</p>
+
+    <div class="ps-grid">
+      <div class="ps-card problem">
+        <div class="big-number">99%</div>
+        <div class="ps-card-icon">&#x26D4;</div>
+        <h3 class="lang-en">The Problem</h3>
+        <h3 class="lang-es">El Problema</h3>
+        <p class="lang-en">Mexico's financial system is broken for the majority. Traditional infrastructure was never designed to serve thin-file populations.</p>
+        <p class="lang-es">El sistema financiero mexicano está roto para la mayoría. La infraestructura tradicional nunca fue diseñada para poblaciones sin historial crediticio.</p>
+        <ul>
+          <li class="lang-en">60%+ of adults lack formal credit access</li>
+          <li class="lang-es">60%+ de adultos sin acceso a crédito formal</li>
+          <li class="lang-en">Only 15% of SMEs get formal credit</li>
+          <li class="lang-es">Solo 15% de PyMEs obtienen crédito formal</li>
+          <li class="lang-en">50% of economy operates informally</li>
+          <li class="lang-es">50% de la economía opera informalmente</li>
+          <li class="lang-en">Fintechs bolt AI onto legacy architecture</li>
+          <li class="lang-es">Las fintechs añaden IA a arquitecturas heredadas</li>
+        </ul>
+      </div>
+      <div class="ps-card solution">
+        <div class="big-number">&lt;5s</div>
+        <div class="ps-card-icon">&#x2728;</div>
+        <h3 class="lang-en">Our Solution</h3>
+        <h3 class="lang-es">Nuestra Solución</h3>
+        <p class="lang-en">An AI-native platform — built from day one for Mexico. Proprietary deep learning models deliver credit decisions in under 5 seconds.</p>
+        <p class="lang-es">Una plataforma nativa de IA — construida desde el día uno para México. Modelos propietarios de deep learning ofrecen decisiones en menos de 5 segundos.</p>
+        <ul>
+          <li class="lang-en">AI-native architecture (not retrofitted)</li>
+          <li class="lang-es">Arquitectura nativa de IA (no adaptada)</li>
+          <li class="lang-en">Alternative-data credit scoring</li>
+          <li class="lang-es">Score crediticio con datos alternativos</li>
+          <li class="lang-en">Real-time fraud detection (&lt;50ms)</li>
+          <li class="lang-es">Detección de fraude en tiempo real</li>
+          <li class="lang-en">5-min onboarding, 1-second approval</li>
+          <li class="lang-es">Onboarding de 5 min, aprobación en 1 segundo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item">
+        <h4>-44.5%</h4>
+        <p class="lang-en">Operational Costs (AI Fintechs)</p>
+        <p class="lang-es">Costos Operativos (Fintechs IA)</p>
+      </div>
+      <div class="stat-item">
+        <h4>-54.9%</h4>
+        <p class="lang-en">Fraud Reduction (AI Fintechs)</p>
+        <p class="lang-es">Reducción de Fraude (Fintechs IA)</p>
+      </div>
+      <div class="stat-item">
+        <h4>+34.2%</h4>
+        <p class="lang-en">Revenue Growth (AI Fintechs)</p>
+        <p class="lang-es">Crecimiento de Ingresos (Fintechs IA)</p>
+      </div>
+      <div class="stat-item">
+        <h4>77%</h4>
+        <p class="lang-en">of Mexican Fintechs Use AI</p>
+        <p class="lang-es">de Fintechs Mexicanas Usan IA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Mexico -->
+<section class="why-mexico" id="mexico">
+  <div class="container">
+    <span class="section-label lang-en">Market Opportunity</span>
+    <span class="section-label lang-es">Oportunidad de Mercado</span>
+    <h2 class="section-title lang-en">Why <span class="highlight">Mexico</span>?</h2>
+    <h2 class="section-title lang-es">¿Por qué <span class="highlight">México</span>?</h2>
+
+    <div class="mexico-grid">
+      <div class="mexico-content">
+        <p class="lang-en">Mexico is Latin America's second-largest startup ecosystem, capturing <strong>$2.7B in VC</strong> in 2025. The fintech market reached <strong>$22.5B</strong> and is projected to grow to <strong>$67.2B by 2034</strong> (CAGR 12.93%).</p>
+        <p class="lang-es">México es el segundo ecosistema startup más grande de Latinoamérica, capturando <strong>$2.7B USD en VC</strong> en 2025. El mercado fintech alcanzó <strong>$22.5B USD</strong> y se proyecta a <strong>$67.2B USD para 2034</strong> (CAGR 12.93%).</p>
+        <p class="lang-en">With <strong>795 local fintechs</strong> and <strong>316 foreign players</strong>, the ecosystem is vibrant — yet only 27% operate AI-first. The whitespace for a truly AI-native financial platform in Mexico is wide open.</p>
+        <p class="lang-es">Con <strong>795 fintechs locales</strong> y <strong>316 extranjeras</strong>, el ecosistema es vibrante — pero solo 27% opera con IA como prioridad. El espacio para una plataforma financiera verdaderamente nativa de IA en México está completamente abierto.</p>
+      </div>
+      <div class="mexico-stats">
+        <div class="mexico-stat-card">
+          <div class="value">$67.2B</div>
+          <div class="label lang-en">Mexico Fintech Market by 2034</div>
+          <div class="label lang-es">Mercado Fintech México 2034</div>
+        </div>
+        <div class="mexico-stat-card">
+          <div class="value">795</div>
+          <div class="label lang-en">Local Fintechs in Mexico</div>
+          <div class="label lang-es">Fintechs Locales en México</div>
+        </div>
+        <div class="mexico-stat-card">
+          <div class="value">$2.7B</div>
+          <div class="label lang-en">VC Captured in 2025</div>
+          <div class="label lang-es">VC Captado en 2025</div>
+        </div>
+        <div class="mexico-stat-card">
+          <div class="value">12.93%</div>
+          <div class="label lang-en">Market CAGR (2025&ndash;2034)</div>
+          <div class="label lang-es">CAGR del Mercado (2025&ndash;2034)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technology -->
+<section class="tech" id="tech">
+  <div class="container">
+    <span class="section-label lang-en">AI Infrastructure</span>
+    <span class="section-label lang-es">Infraestructura de IA</span>
+    <h2 class="section-title lang-en">Built <span class="highlight">AI-First</span> From Day One</h2>
+    <h2 class="section-title lang-es">Construido <span class="highlight">con IA</span> Desde el Día Uno</h2>
+    <p class="section-sub lang-en">Unlike incumbents that bolt AI onto legacy systems, Proyecto X is natively AI — every layer of our stack is designed for machine learning at scale.</p>
+    <p class="section-sub lang-es">A diferencia de los actores establecidos que añaden IA a sistemas heredados, Proyecto X es nativamente IA — cada capa de nuestro stack está diseñada para machine learning a escala.</p>
+
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="icon blue">&#x1F4CA;</div>
+        <h4 class="lang-en">Alternative-Data Scoring</h4>
+        <h4 class="lang-es">Score con Datos Alternativos</h4>
+        <p class="lang-en">Proprietary deep learning models trained on utility payments, mobile usage, behavioral patterns, and remittance flows to score thin-file borrowers.</p>
+        <p class="lang-es">Modelos propietarios de deep learning entrenados con pagos de servicios, uso móvil, patrones de comportamiento y remesas para calificar a prestatarios sin historial.</p>
+      </div>
+      <div class="tech-card">
+        <div class="icon green">&#x1F9EA;</div>
+        <h4 class="lang-en">Real-Time Fraud Detection</h4>
+        <h4 class="lang-es">Detección de Fraude en Tiempo Real</h4>
+        <p class="lang-en">Graph neural networks detect fraud rings and anomalous patterns in under 50ms, targeting fraud loss rates below 1.5%.</p>
+        <p class="lang-es">Redes neuronales de grafos detectan anillos de fraude y patrones anómalos en menos de 50ms, con el objetivo de pérdidas por fraude por debajo del 1.5%.</p>
+      </div>
+      <div class="tech-card">
+        <div class="icon amber">&#x1F3C6;</div>
+        <h4 class="lang-en">Dynamic Risk Pricing</h4>
+        <h4 class="lang-es">Precios de Riesgo Dinámicos</h4>
+        <p class="lang-en">Reinforcement learning optimizes pricing and collection strategies per borrower, improving recovery rates and customer lifetime value.</p>
+        <p class="lang-es">Aprendizaje por refuerzo optimiza precios y estrategias de cobro por prestatario, mejorando tasas de recuperación y valor de vida del cliente.</p>
+      </div>
+      <div class="tech-card">
+        <div class="icon purple">&#x1F52E;</div>
+        <h4 class="lang-en">Continuous Learning Pipeline</h4>
+        <h4 class="lang-es">Pipeline de Aprendizaje Continuo</h4>
+        <p class="lang-en">Models improve with every loan cycle through automated retraining. Our architecture gets smarter as we scale, not slower.</p>
+        <p class="lang-es">Los modelos mejoran con cada ciclo de préstamo mediante reentrenamiento automatizado. Nuestra arquitectura se vuelve más inteligente al escalar, no más lenta.</p>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="comparison-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th class="lang-en">Capability</th>
+            <th class="lang-es">Capacidad</th>
+            <th class="lang-en">Industry Average</th>
+            <th class="lang-es">Promedio Industria</th>
+            <th>Proyecto X</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="lang-en">Approval Time</td>
+            <td class="lang-es">Tiempo de Aprobación</td>
+            <td>3&ndash;7 days</td>
+            <td>&lt;5 seconds</td>
+          </tr>
+          <tr>
+            <td class="lang-en">Thin-File Approval Rate</td>
+            <td class="lang-es">Aprobación sin Historial</td>
+            <td>15&ndash;20%</td>
+            <td>40%+</td>
+          </tr>
+          <tr>
+            <td class="lang-en">Fraud Loss Rate</td>
+            <td class="lang-es">Tasa de Pérdida por Fraude</td>
+            <td>3&ndash;5%</td>
+            <td>&lt;1.5%</td>
+          </tr>
+          <tr>
+            <td class="lang-en">Operational Cost per Loan</td>
+            <td class="lang-es">Costo Operativo por Préstamo</td>
+            <td>$15&ndash;$25</td>
+            <td>&lt;$5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="team" id="team">
+  <div class="container">
+    <span class="section-label lang-en">Leadership</span>
+    <span class="section-label lang-es">Liderazgo</span>
+    <h2 class="section-title lang-en">Meet the <span class="highlight">Team</span></h2>
+    <h2 class="section-title lang-es">Conoce al <span class="highlight">Equipo</span></h2>
+    <p class="section-sub lang-en">Domain expertise in AI/ML and financial services, building the future of Mexican fintech.</p>
+    <p class="section-sub lang-es">Expertiz en IA/ML y servicios financieros, construyendo el futuro del fintech mexicano.</p>
+
+    <div class="team-card">
+      <div class="team-avatar">JC</div>
+      <div class="team-info">
+        <h3>Josue Yannick Cruz Vazquez</h3>
+        <div class="role lang-en">CEO &amp; Founder</div>
+        <div class="role lang-es">CEO &amp; Fundador</div>
+        <p class="lang-en">Domain expertise in AI/ML and financial services. Building Proyecto X to bring AI-native credit infrastructure to Mexico's underserved majority.</p>
+        <p class="lang-es">Experiencia en IA/ML y servicios financieros. Construyendo Proyecto X para llevar infraestructura de crédito nativa de IA a la mayoría no bancarizada de México.</p>
+        <a href="mailto:jcvm2089@gmail.com" class="contact-link">&#x2709;&#xFE0F; jcvm2089@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="container">
+    <span class="section-label lang-en">Contact Us</span>
+    <span class="section-label lang-es">Contáctanos</span>
+    <h2 class="section-title lang-en">Let's <span class="highlight">Build</span> the Future Together</h2>
+    <h2 class="section-title lang-es">Construyamos el <span class="highlight">Futuro</span> Juntos</h2>
+    <p class="section-sub lang-en">We're seeking strategic partners and investors for our pre-seed round. Whether you're an investor, engineer, or potential partner &mdash; reach out.</p>
+    <p class="section-sub lang-es">Buscamos socios estratégicos e inversionistas para nuestra ronda pre-semilla. Ya seas inversionista, ingeniero o socio potencial &mdash; contáctanos.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3 class="lang-en">Get in Touch</h3>
+        <h3 class="lang-es">Ponte en Contacto</h3>
+        <p class="lang-en">We'd love to hear from you. Fill out the form and we'll get back to you within 24 hours.</p>
+        <p class="lang-es">Nos encantaría saber de ti. Llena el formulario y te responderemos en menos de 24 horas.</p>
+        <div class="contact-detail">
+          <span class="emoji">&#x2709;&#xFE0F;</span>
+          <a href="mailto:jcvm2089@gmail.com">jcvm2089@gmail.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="emoji">&#x1F310;</span>
+          <a href="https://proyecto-x.com" target="_blank" rel="noopener">proyecto-x.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="emoji">&#x1F3E6;</span>
+          <span class="lang-en">Mexico City, Mexico</span>
+          <span class="lang-es">Ciudad de México, México</span>
+        </div>
+        <div class="contact-detail" style="margin-top:20px;">
+          <span class="emoji">&#x1F4B0;</span>
+          <span class="lang-en"><strong>Stage:</strong> Pre-seed &middot; Building MVP</span>
+          <span class="lang-es"><strong>Etapa:</strong> Pre-semilla &middot; Construyendo MVP</span>
+        </div>
+        <div class="contact-detail">
+          <span class="emoji">&#x1F91D;</span>
+          <span class="lang-en"><strong>Seeking:</strong> Strategic partners &amp; investors</span>
+          <span class="lang-es"><strong>Buscamos:</strong> Socios estratégicos e inversionistas</span>
+        </div>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/jcvm2089@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Proyecto X - New Contact">
+        <input type="hidden" name="_next" value="">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+        <div class="form-group">
+          <label for="name" class="lang-en">Name</label>
+          <label for="name" class="lang-es">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="interest" class="lang-en">I am a...</label>
+          <label for="interest" class="lang-es">Soy...</label>
+          <select id="interest" name="interest">
+            <option value="" class="lang-en" disabled selected>Select an option</option>
+            <option value="" class="lang-es" disabled selected>Selecciona una opción</option>
+            <option value="investor" class="lang-en">Investor</option>
+            <option value="investor" class="lang-es">Inversionista</option>
+            <option value="partner" class="lang-en">Potential Partner</option>
+            <option value="partner" class="lang-es">Socio Potencial</option>
+            <option value="engineer" class="lang-en">Engineer / Talent</option>
+            <option value="engineer" class="lang-es">Ingeniero / Talento</option>
+            <option value="other" class="lang-en">Other</option>
+            <option value="other" class="lang-es">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message" class="lang-en">Message</label>
+          <label for="message" class="lang-es">Mensaje</label>
+          <textarea id="message" name="message" placeholder="Tell us about yourself and how you'd like to connect..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit lang-en">&#x27A4; Send Message</button>
+        <button type="submit" class="btn-submit lang-es">&#x27A4; Enviar Mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="logo">Proyecto <span>X</span></div>
+    <div class="footer-links">
+      <a href="#hero" class="lang-en">Home</a>
+      <a href="#hero" class="lang-es">Inicio</a>
+      <a href="#problem" class="lang-en">Problem</a>
+      <a href="#problem" class="lang-es">Problema</a>
+      <a href="#mexico" class="lang-en">Market</a>
+      <a href="#mexico" class="lang-es">Mercado</a>
+      <a href="#tech">Tech</a>
+      <a href="#team" class="lang-en">Team</a>
+      <a href="#team" class="lang-es">Equipo</a>
+      <a href="#contact" class="lang-en">Contact</a>
+      <a href="#contact" class="lang-es">Contacto</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Proyecto X. All rights reserved.</span>
+      <span class="lang-en">Built with AI for Mexico</span>
+      <span class="lang-es">Hecho con IA para México</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky CTA Banner -->
+<div class="sticky-banner" id="stickyBanner">
+  <div class="container">
+    <p class="lang-en">&#x1F680; Proyecto X is raising a pre-seed round. Strategic partners and investors welcome.</p>
+    <p class="lang-es">&#x1F680; Proyecto X está levantando ronda pre-semilla. Socios estratégicos e inversionistas bienvenidos.</p>
+    <a href="#contact" class="btn btn-primary lang-en">Get in Touch</a>
+    <a href="#contact" class="btn btn-primary lang-es">Contáctanos</a>
+  </div>
+</div>
+
+<script>
+/* Language toggle */
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    var isActive = btn.getAttribute('data-lang') === lang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive);
+  });
+  localStorage.setItem('proyectox-lang', lang);
+}
+
+(function() {
+  var savedLang = localStorage.getItem('proyectox-lang');
+  if (savedLang) {
+    setLang(savedLang);
+  }
+})();
+
+/* Scroll reveal animation */
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.animate').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  /* Sticky banner: show on scroll past hero */
+  var banner = document.getElementById('stickyBanner');
+  var hero = document.querySelector('.hero');
+  if (banner && hero) {
+    var heroBottom = hero.offsetHeight;
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > heroBottom - 100) {
+        banner.classList.add('show');
+      } else {
+        banner.classList.remove('show');
+      }
+    });
+  }
+
+  /* Animate elements on load */
+  setTimeout(function() {
+    var els = document.querySelectorAll('.ps-card, .stat-item, .mexico-stat-card, .tech-card, .team-card');
+    els.forEach(function(el, i) {
+      el.classList.add('animate');
+      setTimeout(function() {
+        el.classList.add('visible');
+      }, i * 100);
+    });
+  }, 200);
+});
+
+/* Smooth scroll for nav links */
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+  anchor.addEventListener('click', function(e) {
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
