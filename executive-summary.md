@@ -17,7 +17,7 @@ Mexico's fintech market reached **USD 22.5B in 2025**, projected to grow to **US
 Pre-revenue. MVP in development with proprietary alternative-data credit scoring model trained on public datasets. Regulatory sandbox application in progress (CNBV). Partnership LOIs signed with 2 originators.
 
 ### Team
-- **Josue Yannick Cruz Vazquez** — CEO/Founder. Domain expertise in AI/ML and financial services.
+- **Josue Yannick Cruz Sandoval** — CEO/Founder. Domain expertise in AI/ML and financial services.
 
 ### Ask
 **$500,000** for **10% equity** ($5M post-money valuation). SAFE with MFN clause.
@@ -32,7 +32,7 @@ Pre-revenue. MVP in development with proprietary alternative-data credit scoring
 | Operations & working capital | 5% | $25K |
 
 ### Contact
-Josue Yannick Cruz Vazquez — jcvm2089@gmail.com
+Josue Yannick Cruz Sandoval — jcvm2089@gmail.com
 
 ---
 
@@ -53,7 +53,7 @@ El mercado fintech mexicano alcanzó **USD 22.5B en 2025**, proyectado a **USD 6
 Pre-ventas. MVP en desarrollo con modelo propietario de scoring crediticio entrenado en datos públicos. Solicitud de sandbox regulatorio en progreso (CNBV). LOIs de asociación firmados con 2 originadores.
 
 ### Equipo
-- **Josue Yannick Cruz Vazquez** — CEO/Fundador. Experiencia en IA/ML y servicios financieros.
+- **Josue Yannick Cruz Sandoval** — CEO/Fundador. Experiencia en IA/ML y servicios financieros.
 
 ### Solicitud
 **$500,000 USD** por **10% de capital** (valuación post-money de $5M). SAFE con cláusula MFN.
@@ -68,4 +68,4 @@ Pre-ventas. MVP en desarrollo con modelo propietario de scoring crediticio entre
 | Operaciones y capital de trabajo | 5% | $25K |
 
 ### Contacto
-Josue Yannick Cruz Vazquez — jcvm2089@gmail.com
+Josue Yannick Cruz Sandoval — jcvm2089@gmail.com

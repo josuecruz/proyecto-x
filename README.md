@@ -90,7 +90,7 @@ Include the link in your signature:
 
 ```
 ---
-Josue Yannick Cruz Vazquez
+Josue Yannick Cruz Sandoval
 CEO/Founder, Proyecto X
 jcvm2089@gmail.com
 https://<your-username>.github.io/proyecto-x/
