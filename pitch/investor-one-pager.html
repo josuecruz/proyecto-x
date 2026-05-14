@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto X — Investor One-Pager</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #fff;
+  color: #111;
+  line-height: 1.5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm 16mm;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+@media print {
+  body { background: #fff; }
+  .page { margin: 0; padding: 20mm 16mm; width: 100%; }
+}
+.header-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #0066FF, #0044CC);
+}
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+.logo span { color: #0066FF; }
+.tagline {
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.card-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #888;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.card-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111;
+}
+.card-desc {
+  font-size: 0.72rem;
+  color: #666;
+  margin-top: 2px;
+}
+.section-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0066FF;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #0066FF;
+}
+.ps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.ps-card {
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.ps-card.problem {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+}
+.ps-card.solution {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+}
+.ps-card h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.ps-card.problem h4 { color: #DC2626; }
+.ps-card.solution h4 { color: #16A34A; }
+.ps-card ul {
+  list-style: none;
+  font-size: 0.72rem;
+  color: #444;
+  line-height: 1.6;
+}
+.ps-card ul li::before { content: "• "; }
+.ps-card.problem ul li::before { content: "• "; color: #DC2626; }
+.ps-card.solution ul li::before { content: "• "; color: #16A34A; }
+.highlight-box {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.highlight-box .amount {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0066FF;
+}
+.highlight-box .label {
+  font-size: 0.75rem;
+  color: #444;
+}
+.highlight-box .sub {
+  font-size: 0.65rem;
+  color: #888;
+}
+.use-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+  margin-bottom: 16px;
+}
+.use-table th {
+  text-align: left;
+  padding: 6px 8px;
+  font-weight: 600;
+  color: #888;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.use-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #f3f4f6;
+}
+.use-table td:last-child { text-align: right; font-weight: 600; }
+.use-table .total td {
+  font-weight: 700;
+  border-top: 2px solid #111;
+  padding-top: 8px;
+}
+.milestones {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.milestone {
+  text-align: center;
+  padding: 10px;
+  background: #FAFAFA;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+.milestone .m-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0066FF;
+}
+.milestone .m-label {
+  font-size: 0.62rem;
+  color: #666;
+  margin-top: 2px;
+}
+.footer {
+  font-size: 0.65rem;
+  color: #999;
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+  margin-top: 8px;
+}
+.contact-row {
+  display: flex;
+  gap: 16px;
+  font-size: 0.72rem;
+  color: #444;
+  justify-content: center;
+  margin-top: 8px;
+}
+.contact-row strong { color: #111; }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="header-bg"></div>
+
+<div class="logo">Proyecto <span>X</span></div>
+<div class="tagline">AI-Native Financial Services for Mexico's Mass Market</div>
+
+<div class="highlight-box">
+  <div>
+    <div class="label">Now Raising</div>
+    <div class="amount">$500,000</div>
+    <div class="sub">Pre-Seed Round · $5M post-money valuation</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="label">Contact</div>
+    <div style="font-weight:600;font-size:0.85rem;">Josue Yannick Cruz Sandoval</div>
+    <div class="sub">jcvm2089@gmail.com</div>
+  </div>
+</div>
+
+<div class="section-title">The Problem</div>
+<div class="grid-2">
+  <div>
+    <div style="font-size:0.72rem;color:#444;line-height:1.7;">
+      Mexico has <strong>65M+ adults</strong> without formal credit history (60% of the adult population). Banks reject <strong>7 of 10</strong> loan applications. <strong>50%</strong> of the economy operates informally. Existing fintechs bolt AI onto legacy infrastructure — unable to profitably serve thin-file customers.
+    </div>
+  </div>
+  <div class="grid-3">
+    <div class="card" style="text-align:center;">
+      <div class="card-value" style="color:#DC2626;">65M</div>
+      <div class="card-desc">Adults without credit</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div class="card-value" style="color:#DC2626;">70%</div>
+      <div class="card-desc">Loan rejection rate</div>
+    </div>
+    <div class="card" style="text-align:center;">
+      <div class="card-value" style="color:#DC2626;">$0</div>
+      <div class="card-desc">Credit score for 50% of economy</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">Our Solution — AI-Native Architecture</div>
+<div class="ps-grid">
+  <div class="ps-card problem">
+    <h4>Industry Average</h4>
+    <ul>
+      <li>AI bolted onto legacy systems</li>
+      <li>3-7 day approval time</li>
+      <li>$15-25 cost per loan</li>
+      <li>15-20% thin-file approval rate</li>
+      <li>3-5% fraud loss rate</li>
+    </ul>
+  </div>
+  <div class="ps-card solution">
+    <h4>Proyecto X</h4>
+    <ul>
+      <li>AI-native from day one</li>
+      <li>&lt;5 second credit decisions</li>
+      <li>&lt;$5 cost per loan</li>
+      <li>40%+ thin-file approval rate</li>
+      <li>&lt;1.5% fraud loss rate</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section-title">Market Opportunity</div>
+<div class="grid-3">
+  <div class="card" style="text-align:center;">
+    <div class="card-value">$67.2B</div>
+    <div class="card-desc">Mexico fintech market by 2034</div>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div class="card-value">12.9%</div>
+    <div class="card-desc">Market CAGR</div>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div class="card-value">$2.7B</div>
+    <div class="card-desc">VC into Mexico (2025)</div>
+  </div>
+</div>
+
+<div class="section-title">Traction</div>
+<div class="grid-3">
+  <div class="card" style="text-align:center;">
+    <div class="card-value">26+</div>
+    <div class="card-desc">Applications submitted<br>(incl. YC, Techstars, Supermicro)</div>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div class="card-value" style="color:#16A34A;">1</div>
+    <div class="card-desc">Positive response<br>(Supermicro — evaluation in progress)</div>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div class="card-value">54+</div>
+    <div class="card-desc">VC prospects identified across LatAm</div>
+  </div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+  <div class="card" style="display:flex;gap:10px;align-items:start;">
+    <div style="font-size:1rem;">&#x1F4CB;</div>
+    <div>
+      <div style="font-weight:600;font-size:0.75rem;">2 Originator LOIs Signed</div>
+      <div style="font-size:0.65rem;color:#666;">Commitment to pilot once sandbox approved</div>
+    </div>
+  </div>
+  <div class="card" style="display:flex;gap:10px;align-items:start;">
+    <div style="font-size:1rem;">&#x1F510;</div>
+    <div>
+      <div style="font-weight:600;font-size:0.75rem;">CNBV Sandbox Application</div>
+      <div style="font-size:0.65rem;color:#666;">Regulatory pathway in progress</div>
+    </div>
+  </div>
+  <div class="card" style="display:flex;gap:10px;align-items:start;">
+    <div style="font-size:1rem;">&#x26A1;</div>
+    <div>
+      <div style="font-weight:600;font-size:0.75rem;">$600K Cloud Credits Mapped</div>
+      <div style="font-size:0.65rem;color:#666;">Google $350K + Microsoft $150K + AWS $100K (0% equity)</div>
+    </div>
+  </div>
+  <div class="card" style="display:flex;gap:10px;align-items:start;">
+    <div style="font-size:1rem;">&#x1F3C6;</div>
+    <div>
+      <div style="font-weight:600;font-size:0.75rem;">$450K+ Grants & Prizes Identified</div>
+      <div style="font-size:0.65rem;color:#666;">Slingshot, MassChallenge, InnovaFest, Santander X</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">Use of Funds</div>
+<table class="use-table">
+  <tr><th>Category</th><th>%</th><th>Amount</th></tr>
+  <tr><td>Engineering & AI/ML (3 FTE + contractors)</td><td>35%</td><td>$175,000</td></tr>
+  <tr><td>GPU infrastructure & cloud credits</td><td>30%</td><td>$150,000</td></tr>
+  <tr><td>Product development & compliance</td><td>20%</td><td>$100,000</td></tr>
+  <tr><td>Regulatory (CNBV sandbox + legal)</td><td>10%</td><td>$50,000</td></tr>
+  <tr><td>Operations & working capital</td><td>5%</td><td>$25,000</td></tr>
+  <tr class="total"><td>Total</td><td>100%</td><td>$500,000</td></tr>
+</table>
+
+<div class="section-title">Key Milestones</div>
+<div class="milestones">
+  <div class="milestone">
+    <div class="m-value">6 Months</div>
+    <div class="m-label">MVP Launch</div>
+  </div>
+  <div class="milestone">
+    <div class="m-value">1,000+</div>
+    <div class="m-label">Pilot Loans</div>
+  </div>
+  <div class="milestone">
+    <div class="m-value">CNBV</div>
+    <div class="m-label">Sandbox Authorization</div>
+  </div>
+</div>
+
+<div class="contact-row">
+  <span><strong>CEO:</strong> Josue Yannick Cruz Sandoval</span>
+  <span><strong>Email:</strong> jcvm2089@gmail.com</span>
+  <span><strong>Web:</strong> josuecruz.github.io/proyecto-x/</span>
+</div>
+
+<div class="footer">
+  Proyecto X — AI-Native Financial Services for Mexico — Pre-Seed $500K @ $5M post-money
+</div>
+</div>
+</body>
+</html>
